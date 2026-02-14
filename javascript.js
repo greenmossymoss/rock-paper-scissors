@@ -1,21 +1,17 @@
-console.log("Hello World!")
-
 function getComputerChoice () {
     num = Math.floor(Math.random() * 3)
     switch (num) {
         case 0:
             return "rock";
-            break;
+            
         case 1:
             return "paper";
-            break;
+            
         case 2:
             return "scissors";
-            break;
+            
     } 
 }
-
-console.log(getComputerChoice())
 
 function getHumanChoice() {
     message = 'what do you choose?';
@@ -23,7 +19,41 @@ function getHumanChoice() {
     return userInput;
 }
 
-console.log(getHumanChoice())
+// console.log(getHumanChoice())
 
 let humanScore = 0
 let computerScore = 0
+
+function playRound (computerChoice, humanChoice) {
+
+    computerChoice = getComputerChoice()
+    humanChoice = getHumanChoice().toLowerCase()
+
+    console.log(computerChoice, humanChoice) 
+
+    if (computerChoice === humanChoice) {
+        return 'it\'s a tie'
+    }
+    else if (computerChoice === 'rock' && humanChoice === 'scissors') {
+        return 'Sorry, you lost :('
+    }
+    else if (computerChoice === 'rock' && humanChoice === 'paper') {
+        return 'You won!'
+    }
+    else if (computerChoice === 'scissors' && humanChoice === 'paper') {
+        return 'Sorry, you lost :('
+    }
+    else if (computerChoice === 'scissors' && humanChoice === 'rock') {
+        return 'You won!'
+    }
+    else if (computerChoice === 'paper' && humanChoice === 'scissors'){
+        return 'You won!'
+    }
+    else if (computerChoice === 'paper' && humanChoice === 'rock')
+        return 'Sorry, you lost :('
+    else {
+        return 'not working :('
+    }
+}
+
+console.log(playRound())

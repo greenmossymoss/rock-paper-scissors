@@ -21,3 +21,9 @@ step 4:
     Create vars humanScore and computerScore
     both have initial value 0
 
+step 5: 
+    Create function playRound
+        parameters are humanChoice and computerChoice
+        humanChoice is case-insesitive
+            
+        if computer paper, human rock, write string for user, make the same for other variations (wtf is pseudocode, def not this.)
