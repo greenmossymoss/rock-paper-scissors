@@ -27,3 +27,12 @@ step 5:
         humanChoice is case-insesitive
             
         if computer paper, human rock, write string for user, make the same for other variations (wtf is pseudocode, def not this.)
+
+step 6: 
+    Create function playGame
+        Move playRound into the function
+        Move score variables into the function
+        if computer win, computerScore + 1
+        if human win, humanScore + 1
+        play 5 rounds
+        declare a winner at the end
