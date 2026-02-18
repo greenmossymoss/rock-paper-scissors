@@ -1,5 +1,4 @@
-let computerChoice = getComputerChoice()
-// let humanChoice = getHumanChoice().toLowerCase()
+
 
 function getComputerChoice() {
     num = Math.floor(Math.random() * 3)
@@ -15,12 +14,6 @@ function getComputerChoice() {
     }
 }
 
-// function getHumanChoice() {
-//     message = 'Rock, paper or scissors?';
-//     userInput = prompt(message);
-//     return userInput;
-// }
-
 let humanScore = 0
 let computerScore = 0
 
@@ -28,30 +21,40 @@ let computerScore = 0
 
 function playRound(computerChoice, humanChoice) {
 
+    // let computerChoice = getComputerChoice()
     
+    const div = document.createElement('div');
+    const p = document.createElement('p')
+    
+    wrapper.appendChild(div)
+    div.appendChild(p)
 
     console.log(computerChoice, humanChoice)
 
     if (computerChoice === humanChoice) {
-        console.log('This round is a tie')
+        // p.textContent = 'This round is a tie.'
     }
 
     else if (computerChoice === 'rock' && humanChoice === 'paper' ||
         computerChoice === 'scissors' && humanChoice === 'rock' ||
         computerChoice === 'paper' && humanChoice === 'scissors') {
-        humanScore += 1
-        console.log('This round is a win for you!')
+        humanScore++
+        // p.textContent = 'You won this round!'
     }
     else {
         computerScore++;
-        console.log('The computer won this one :(')
+        // p.textContent = 'The computer won this one :('
     }
+
+    p.textContent = `You: ${humanScore} Computer: ${computerScore}`
 
 }
 
 function playGame() {
 
-
+    // for (let i = 0; i < 5; i++){
+    //     playRound(getComputerChoice(), humanChoice)
+    // }
 
     console.log(computerScore, humanScore)
 
@@ -67,7 +70,7 @@ function playGame() {
 
 }
 
-playGame()
+
 
 const wrapper = document.querySelector('#wrapper');
     wrapper.addEventListener('click', (event) => {
@@ -75,15 +78,17 @@ const wrapper = document.querySelector('#wrapper');
 
         switch(target.id) {
             case 'rock':
-                alert('rock')
+                humanChoice = 'rock'
                 break;
             case 'scissors':
-                alert('scissors')
+                humanChoice = 'scissors'
                 break;
             case 'paper':
-                alert('paper')
+                humanChoice = 'paper'
                 break;
         }
+
+        playRound(getComputerChoice(), humanChoice)
 
     })
 
