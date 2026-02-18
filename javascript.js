@@ -17,17 +17,31 @@ function getComputerChoice() {
 let humanScore = 0
 let computerScore = 0
 
+const wrapper = document.querySelector('#wrapper');
+    wrapper.addEventListener('click', (event) => {
+        let target = event.target;
 
+        switch(target.id) {
+            case 'rock':
+                humanChoice = 'rock'
+                break;
+            case 'scissors':
+                humanChoice = 'scissors'
+                break;
+            case 'paper':
+                humanChoice = 'paper'
+                break;
+        }
+        playGame()
+    })
+
+const div = document.createElement('div');
+const p = document.createElement('p')
+
+wrapper.appendChild(div)
+div.appendChild(p)
 
 function playRound(computerChoice, humanChoice) {
-
-    // let computerChoice = getComputerChoice()
-    
-    const div = document.createElement('div');
-    const p = document.createElement('p')
-    
-    wrapper.appendChild(div)
-    div.appendChild(p)
 
     console.log(computerChoice, humanChoice)
 
@@ -52,45 +66,24 @@ function playRound(computerChoice, humanChoice) {
 
 function playGame() {
 
-    // for (let i = 0; i < 5; i++){
-    //     playRound(getComputerChoice(), humanChoice)
-    // }
+    playRound(getComputerChoice(), humanChoice)
 
     console.log(computerScore, humanScore)
-
-    if (computerScore > humanScore) {
-        console.log('You lost the game :(')
-    }
-    else if (computerScore < humanScore) {
-        console.log('Congratulations, you won the game!')
-    }
-    else {
-        console.log('It\'s a tie.')
-    }
-
+    if ((computerScore === 5) || (humanScore === 5)){
+        if (computerScore > humanScore) {
+            p.textContent = 'You lost the game :('
+        }
+        else {
+            p.textContent = 'Congratulations, you won the game!'
+        }
+        // else {
+        //     console.log('It\'s a tie.')
+        // }
+        }
+    
 }
 
 
-
-const wrapper = document.querySelector('#wrapper');
-    wrapper.addEventListener('click', (event) => {
-        let target = event.target;
-
-        switch(target.id) {
-            case 'rock':
-                humanChoice = 'rock'
-                break;
-            case 'scissors':
-                humanChoice = 'scissors'
-                break;
-            case 'paper':
-                humanChoice = 'paper'
-                break;
-        }
-
-        playRound(getComputerChoice(), humanChoice)
-
-    })
 
 // const btn = document.querySelector('button')
 // // const btnScissors = document.querySelector('#scissors')
