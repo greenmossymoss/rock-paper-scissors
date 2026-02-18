@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(53, 126, 53);
+}
+
+button {
+    background-color: rgb(3, 63, 3);
+    color: rgb(237, 245, 237);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+p {
+    color: white;
+}
