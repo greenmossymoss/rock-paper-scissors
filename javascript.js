@@ -18,37 +18,35 @@ function getHumanChoice() {
     return userInput;
 }
 
-function playGame () {
+let humanScore = 0
+let computerScore = 0
 
-    let humanScore = 0
-    let computerScore = 0
+function playRound (computerChoice, humanChoice) {
 
-        function playRound (computerChoice, humanChoice) {
+    computerChoice = getComputerChoice()
+    humanChoice = getHumanChoice().toLowerCase()
 
-        computerChoice = getComputerChoice()
-        humanChoice = getHumanChoice().toLowerCase()
+    console.log(computerChoice, humanChoice) 
 
-        console.log(computerChoice, humanChoice) 
-
-        if (computerChoice === humanChoice){
-            console.log('This round is a tie')
-        }
-        
-        else if (computerChoice === 'rock' && humanChoice === 'paper'||
-                 computerChoice === 'scissors' && humanChoice === 'rock' ||
-                 computerChoice === 'paper' && humanChoice === 'scissors'){
-            humanScore += 1
-            console.log('This round is a win for you!')
-        }
-        else {
-            computerScore++;
-            console.log('The computer won this one :(')
-        }
-
+    if (computerChoice === humanChoice){
+        console.log('This round is a tie')
+    }
+    
+    else if (computerChoice === 'rock' && humanChoice === 'paper'||
+                computerChoice === 'scissors' && humanChoice === 'rock' ||
+                computerChoice === 'paper' && humanChoice === 'scissors'){
+        humanScore += 1
+        console.log('This round is a win for you!')
+    }
+    else {
+        computerScore++;
+        console.log('The computer won this one :(')
     }
 
-    playRound()
-    playRound()
+}
+
+function playGame () {
+
     playRound()
     playRound()
     playRound()
@@ -64,6 +62,7 @@ function playGame () {
     else {
         console.log('It\'s a tie.') 
     } 
+
 }
 
 playGame()
