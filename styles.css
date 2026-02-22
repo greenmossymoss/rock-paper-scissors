@@ -19,3 +19,8 @@ button {
 p {
     color: white;
 }
+
+#buttonHolder {
+    display: flex;
+    justify-content: center;
+}

@@ -62,6 +62,11 @@ function playRound(computerChoice, humanChoice) {
 
 }
 
+const result = document.createElement('p')
+
+const btn = document.createElement('button')
+const buttonHolder = document.querySelector('#buttonHolder')
+
 function playGame() {
 
     playRound(getComputerChoice(), humanChoice)
@@ -69,10 +74,23 @@ function playGame() {
     console.log(computerScore, humanScore)
     if ((computerScore === 5) || (humanScore === 5)){
         if (computerScore > humanScore) {
-            p.textContent = 'You lost the game :('
+            result.textContent = 'You lost the game :('
         }
         else {
-            p.textContent = 'Congratulations, you won the game!'
+            result.textContent = 'Congratulations, you won the game!'
         }
+        div.appendChild(result)
+        btn.textContent = 'New game'
+        buttonHolder.appendChild(btn)
         }
 }
+
+
+
+btn.addEventListener('click', () => {
+    computerScore = 0
+    humanScore = 0
+    buttonHolder.removeChild(btn)
+    div.removeChild(result)
+    p.textContent = `You: ${humanScore} Computer: ${computerScore}`
+})
